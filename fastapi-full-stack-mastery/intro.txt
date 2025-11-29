@@ -1,0 +1,53 @@
+What is FastAPI?
+----------------
+A modern, fast (high-performance) web framework for building APIs with Python 3.6+
+Built on top of Starlette and Pydantic
+Async by default
+OpenAPI documentation out of the box
+
+What is Starlette?
+------------------
+Starlette is a lightweight, high-performance ASGI (Asynchronous Server Gateway Interface) framework and toolkit designed for building asynchronous web services and APIs in Python.
+FastAPI is built on top of Starlette, an ASGI (Asynchronous Server Gateway Interface) framework, which allows it to handle asynchronous requests efficiently and scale to high loads.
+
+What is Pydantic?
+-----------------
+Pydantic is a popular Python library for data validation and settings management that leverages Python's type annotations to define and validate data models easily. It is widely sed for ensuring that data coming into your application such as user input, API requests, or configuration files is valid, consistent, and correctly typed.
+
+
+Why Developers Love FastAPI
+---------------------------
+⚡ Speed: One of the fastest Python frameworks.
+🧠 Type Hints: Full type support using Python's type hints.
+🔄 Async Support: Native async/await.
+📄 Auto Docs: Swagger & ReDoc generated automatically.
+
+Under the Hood
+--------------
+Request -> Validation (Pydantic) -> Route (Starlette) -> Response
+* Request: An HTTP request is received.
+* Validation (Pydantic): Pydantic is used to validate the incoming data (like the JSON body or query parameters) against the defined data models.
+* Route (Starlette): Starlette (which FastAPI is built on) handles routing the validated request to the correct view function.
+* Response: The view function processes the request and returns an HTTP response.
+
+Dev Experience
+---------------
+FastAPI is fast, simple, and developer-friendly.
+Less code, built-in validation, and auto documentation.
+Great for modern Python API development.
+Used in production by big companies.
+
+
+Is FastAPI Right for You?
+------------------------
+Building REST APIs
+Microservices
+High-performance apps
+AI/ML model serving (e.g., Hugging Face)
+
+Who's Using FastAPI?
+-------------------
+Microsoft
+Uber
+Online Doctor
+Sound Cloud
