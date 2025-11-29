@@ -51,3 +51,8 @@ Microsoft
 Uber
 Online Doctor
 Sound Cloud
+
+
+fast api dir structure:
+1. vertical structure(3D like django, can Microservices, feature base structure)
+2. horizontal structure(small project)
