@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
+from enum import Enum
 
 app = FastAPI()
-
 
 data = [
     {'id': 1, 'name': 'iphone17', 'price': 100},
@@ -113,3 +113,23 @@ async def get_product_by_title(product_title: str):
 # async def get_product_by_hard_coded_title():
 #     ''' get product by title, it will not execute because path match get_product_by_title '''
 #     return {"response": "Single Data Fetched"}
+
+
+# path parameter pre define value
+class ProductCategory(str, Enum):
+    ''' category enum class '''
+    books = "books"
+    clothing = "clothing"
+    electronics = "electronics"
+
+
+@app.get("/product/category/{category}")
+async def get_product_by_category(category: ProductCategory):
+    ''' get product by category '''
+    # return {"response": "Product fetched by category", "category": category}
+    if category == ProductCategory.books:
+        return {"category": category, "message": "Books are awesome!"}
+    elif category == ProductCategory.clothing:
+        return {"category": category, "message": "Clothing are awesome!"}
+    else:
+        return {"category": category, "message": "Unknown category"}
