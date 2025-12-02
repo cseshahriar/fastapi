@@ -133,3 +133,10 @@ async def get_product_by_category(category: ProductCategory):
         return {"category": category, "message": "Clothing are awesome!"}
     else:
         return {"category": category, "message": "Unknown category"}
+
+
+# path converter
+@app.get("/files/{file_path:path}")  # when need full path capture
+async def read_file(file_path: str):
+    ''' file path '''
+    return {"message": "you requested file at path", "file": file_path}
