@@ -84,3 +84,32 @@ async def delete_product(product_id: int):
     deleted = data.pop(index)
 
     return {"message": "Product deleted", "deleted": deleted}
+
+
+# Parameter with types
+@app.get("/get-product/{product_id}")
+async def retrieve_product(product_id: int):
+    ''' single product '''
+    product = next((item for item in data if item["id"] == product_id), None)
+    if not product:
+        raise HTTPException(status_code=404, detail="Product not found")
+    return {"response": product}
+
+
+# parameter order
+@app.get("/product-title/rode_nt_usb")
+async def get_product_by_hard_coded_title():
+    ''' get product by title '''
+    return {"response": "get_product_by_hard_coded_title"}
+
+
+@app.get("/product-title/{product_title}")
+async def get_product_by_title(product_title: str):
+    ''' get product by title'''
+    return {"response": "Single Data Fetched", "product_title": product_title}
+
+
+# @app.get("/product-title/rode_nt_usb")
+# async def get_product_by_hard_coded_title():
+#     ''' get product by title, it will not execute because path match get_product_by_title '''
+#     return {"response": "Single Data Fetched"}
