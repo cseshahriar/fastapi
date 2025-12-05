@@ -86,6 +86,8 @@ async def delete_product(product_id: int):
     return {"message": "Product deleted", "deleted": deleted}
 
 
+
+
 # Parameter with types
 @app.get("/get-product/{product_id}")
 async def retrieve_product(product_id: int):
@@ -140,3 +142,31 @@ async def get_product_by_category(category: ProductCategory):
 async def read_file(file_path: str):
     ''' file path '''
     return {"message": "you requested file at path", "file": file_path}
+
+
+# single query parameter
+# http://127.0.0.1:8000/single-product?category=book&limit=5
+# @app.get("/single-product")
+# async def single_query_parameter(category: str):
+#     ''' single query parameter '''
+#     return {"status": "ok", "category": category}
+
+# multiple query params
+# @app.get("/single-product")
+# async def single_query_parameter(limit: int, category: str):
+#     ''' single query parameter '''
+#     return {"status": "ok", "category": category, "limit": limit}
+
+# default value and optional query params
+# @app.get("/single-product")
+# async def single_query_parameter(limit: int = 10, category: str = None):
+#     ''' single query parameter '''
+#     return {"status": "ok", "category": category, "limit": limit}
+
+
+# path and query parameter
+# http://127.0.0.1:8000/single-product/2025?category=book
+@app.get("/single-product/{year}")
+async def single_query_parameter(year: str, category: str):
+    ''' single query parameter '''
+    return {"status": "ok", "year": year, "category": category}
