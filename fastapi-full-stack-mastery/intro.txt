@@ -37,7 +37,6 @@ Less code, built-in validation, and auto documentation.
 Great for modern Python API development.
 Used in production by big companies.
 
-
 Is FastAPI Right for You?
 ------------------------
 Building REST APIs
@@ -51,7 +50,6 @@ Microsoft
 Uber
 Online Doctor
 Sound Cloud
-
 
 fast api dir structure:
 1. vertical structure(3D like django, can Microservices, feature base structure)

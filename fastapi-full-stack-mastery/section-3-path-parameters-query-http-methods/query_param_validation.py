@@ -61,7 +61,22 @@ async def get_product_list(
 # Multi search terms(List)
 @app.get("/products")
 async def get_multi_search_products(
-    search: Annotated[list[str] | None, Query()] = None
+    search: Annotated[list[str] | None, Query(alias="q")] = None
+):
+    if search:
+        filter_products = []
+        for product in products:
+            for s in search:
+                if s.lower() in product["title"].lower():
+                    filter_products.append(product)
+        return filter_products
+    return products
+
+
+# Deprecated query parameter
+@app.get("/deprecated/products")
+async def get_deprecating_products(
+    search: Annotated[list[str] | None, Query(deprecated=True)] = None
 ):
     if search:
         filter_products = []
